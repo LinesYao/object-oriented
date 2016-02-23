@@ -4,8 +4,8 @@ using namespace std;
 	
 	void Scan::ToStringQueue(string input)
 	{
-		string sign="";  //存放符号 
-		string num="";  //存放数字 
+		string sign = "";  //存放符号 
+		string num = "";  //存放数字 
 		int count=0;  //记忆数字位数 
 		
 		for (int i = 0; i < input.size(); i++)
@@ -43,7 +43,7 @@ using namespace std;
 	 	} 
 	 	
 	 	/*最后一位为数字*/
-        if(num!="" && isTrue)
+        	if(num!="" && isTrue)
 		{
 			inputQue.push(num);
 		}
