@@ -4,13 +4,13 @@ using namespace std;
 	
 	void Scan::ToStringQueue(string input)
 	{
-		string sign;  //´æ·Å·ûºÅ 
-		string num;  //´æ·ÅÊı×Ö 
-		int count;  //¼ÇÒäÊı×ÖÎ»Êı 
+		string sign="";  //å­˜æ”¾ç¬¦å· 
+		string num="";  //å­˜æ”¾æ•°å­— 
+		int count=0;  //è®°å¿†æ•°å­—ä½æ•° 
 		
 		for (int i = 0; i < input.size(); i++)
 		{
-			/*µ±Ç°Î»Îª·ûºÅ*/ 
+			/*å½“å‰ä½ä¸ºç¬¦å·*/ 
 			if (input[i] == '-' || input[i] == '(' || input[i] == ')' || input[i] == '+' || input[i] == '*' || input[i] == '/')
 			{
 				if (num!="") 
@@ -24,13 +24,13 @@ using namespace std;
 			
 			}
 			
-			/*µ±Ç°Î»ÎªÊı×Ö*/ 
-			else if (input[i] >= 48 && input[i] <= 57 || input[i] == '.')//ËµÃ÷ÊÇÊı×Ö 
+			/*å½“å‰ä½ä¸ºæ•°å­—*/ 
+			else if (input[i] >= 48 && input[i] <= 57 || input[i] == '.')//è¯´æ˜æ˜¯æ•°å­— 
 			{
 				count++;
 				if (count > 10)
 				{
-					cout << "ÊäÈëµÄÊı×Ö³¬¹ıÊ®Î»£¨°üÀ¨Ğ¡ÊıÎ»£©" << endl;
+					cout << "è¾“å…¥çš„æ•°å­—è¶…è¿‡åä½ï¼ˆåŒ…æ‹¬å°æ•°ä½ï¼‰" << endl;
 					isTrue = false;
 					break; 
 				}
@@ -42,13 +42,13 @@ using namespace std;
 		
 	 	} 
 	 	
-	 	/*×îºóÒ»Î»ÎªÊı×Ö*/
+	 	/*æœ€åä¸€ä½ä¸ºæ•°å­—*/
         if(num!="" && isTrue)
 		{
 			inputQue.push(num);
 		}
 		 
-		/*ÊäÈë²»·û£¨Ä¿Ç°ÎªÊäÈëµÄÊı×Ö³¬¹ıÊ®Î»£©£¬Çå¿Õ¶ÓÁĞ*/ 
+		/*è¾“å…¥ä¸ç¬¦ï¼ˆç›®å‰ä¸ºè¾“å…¥çš„æ•°å­—è¶…è¿‡åä½ï¼‰ï¼Œæ¸…ç©ºé˜Ÿåˆ—*/ 
 		if (!isTrue)
 		{
 		
