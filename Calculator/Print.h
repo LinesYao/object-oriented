@@ -1,14 +1,17 @@
+/*****************************************
+  Author:æ˜¯å…‰ä¸æ˜¯yao  
+  Function List: 
+	        printQue  æ‰“å°æ¥æ”¶çš„é˜Ÿåˆ— 
+		   
+*****************************************/
+
 #include<iostream>
 #include<queue>
 using namespace std;
-
 
 class Print
 {
 	public:
 		
-		/*
-			´òÓ¡½ÓÊÕµÄ¶ÓÁĞ 
-		*/ 
 		void printQue(queue<string> que);
 };
