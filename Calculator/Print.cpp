@@ -1,12 +1,12 @@
-#include"Print.h">
+#include<"Print.h">
 using namespace std;
 
 
 void Print::printQue(queue<string> que)
 {
-	int size = que.size();  //╢Ф╥е╤сап╣д╢Сп║ 
+	int size = que.size();  //Е╜≤Ф■╬И≤÷Е┬≈Г └Е╓╖Е╟▐ 
 	
-	/*╣╠╤сап╥г©уй╠╢Рс║╤сапё╛╤сапхТн╙©утРйДхК╡╩╥Ш*/ 
+	/*Е╫⌠И≤÷Е┬≈И²·Г╘╨Ф≈╤Ф┴⌠Е█╟И≤÷Е┬≈О╪▄И≤÷Е┬≈Х▀╔Д╦╨Г╘╨Е┬≥Х╬⌠Е┘╔Д╦█Г╛╕*/ 
 	if (!que.empty())
 	{
 		for (int i=0; i< size; i++)
@@ -15,7 +15,5 @@ void Print::printQue(queue<string> que)
 			que.pop();
 		}
 	}
-	
-	
-	
+
 }
