@@ -2,11 +2,11 @@
 using namespace std;
 
 	
-	void Scan::ToStringQueue(string input)
+	void Scan::toStringQueue(string input)
 	{
-		string sign = "";  //存放符号 
-		string num = "";  //存放数字 
-		int count=0;  //记忆数字位数 
+		string sign;  //存放符号 
+		string num;  //存放数字 
+		int count;  //记忆数字位数 
 		
 		for (int i = 0; i < input.size(); i++)
 		{
@@ -15,17 +15,18 @@ using namespace std;
 			{
 				if (num!="") 
 				{
-					inputQue.push(num);
+					inputQue.push(num);	
+					num = "";
+					count = 0;
 				}
 				
-				num = "";
-				count = 0;
+			
 				inputQue.push(sign = input[i]);
 			
 			}
 			
 			/*当前位为数字*/ 
-			else if (input[i] >= 48 && input[i] <= 57 || input[i] == '.')//说明是数字 
+			else if (input[i] >= '0' && input[i] <= '9' || input[i] == '.')  
 			{
 				count++;
 				if (count > 10)
@@ -43,7 +44,7 @@ using namespace std;
 	 	} 
 	 	
 	 	/*最后一位为数字*/
-        	if(num!="" && isTrue)
+        if(num!="" && isTrue)
 		{
 			inputQue.push(num);
 		}
@@ -55,8 +56,7 @@ using namespace std;
 			int size = inputQue.size();
 			
 		 	for (int j = 0; j < size; j++)
-		 	{
-		 		
+		 	{	
 		 		inputQue.pop();
 			}
 			  
