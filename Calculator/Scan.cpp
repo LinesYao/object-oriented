@@ -38,13 +38,10 @@ using namespace std;
 				
 				num += input[i];
 			}
-			
-			
-		
-	 	} 
+		} 
 	 	
 	 	/*最后一位为数字*/
-        if(num!="" && isTrue)
+        	if(num!="" && isTrue)
 		{
 			inputQue.push(num);
 		}
@@ -61,8 +58,7 @@ using namespace std;
 			}
 			  
 		} 
-	
-    }
+        }
 
 
 
