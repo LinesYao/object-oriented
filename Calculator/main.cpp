@@ -6,12 +6,12 @@ using namespace std;
 
 int main() 
 {
-	string input;  //½ÓÊÕ¼üÅÌÊäÈëµÄ±í´ïÊ½ 
+	string input;  //æ¥æ”¶é”®ç›˜è¾“å…¥çš„è¡¨è¾¾å¼ 
 	cin>>input;
 	
 	Scan sc;
     sc.ToStringQueue(input) ;
-    queue<string> q = sc.getQue();  //´æ·Å»ñÈ¡µÄ¶ÓÁĞ 
+    queue<string> q = sc.getQue();  //å­˜æ”¾è·å–çš„é˜Ÿåˆ— 
 
 	Print pr;
 	pr.printQue(q);
@@ -19,4 +19,3 @@ int main()
 
 	return 0;
 }
-
