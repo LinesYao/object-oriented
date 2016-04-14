@@ -9,15 +9,15 @@ using namespace std;
 
 int main(int argc, char* argv[]) 
 {
-	//string input;  //½ÓÊÕ¼üÅÌÊäÈëµÄ±í´ïÊ½ 
+	//string input;  //æ¥æ”¶é”®ç›˜è¾“å…¥çš„è¡¨è¾¾å¼ 
 	//cin>>input; 
 	
 	Scan sc;
 	queue<string> q = sc.toStringQueue(sc.judge(argc,argv)); 
-    //queue<string> q = sc.toStringQueue(input);  //´æ·Å»ñÈ¡µÄ¶ÓÁĞ 
+    //queue<string> q = sc.toStringQueue(input);  //å­˜æ”¾è·å–çš„é˜Ÿåˆ— 
 
 	Print pr;
-	pr.printQue(q);
+	pr.printQue(q ,sc.isPrint);
 	
 
 	Calculation cal;
