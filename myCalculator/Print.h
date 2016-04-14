@@ -1,7 +1,7 @@
 /*****************************************
-    Author:ÊÇ¹â²»ÊÇyao  
+    Author:æ˜¯å…‰ä¸æ˜¯yao  
 	Function List: 
-	        printQue  ´òÓ¡½ÓÊÕµÄ¶ÓÁĞ 
+	        printQue  æ‰“å°æ¥æ”¶çš„é˜Ÿåˆ— 
 		   
 *****************************************/
 
@@ -13,6 +13,6 @@ class Print
 {
 	public:
 		
-		void printQue(queue<string> que);
+		void printQue(queue<string> que,bool isPrint);
 	
 };
