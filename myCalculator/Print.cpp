@@ -4,14 +4,14 @@ using namespace std;
 
 
 
-void Print::printQue(queue<string> que)
+void Print::printQue(queue<string> que ,bool isPrint)
 {
 	
 	
-	int size = que.size();  //´æ·Å¶ÓÁĞµÄ´óĞ¡ 
+	int size = que.size();  //å­˜æ”¾é˜Ÿåˆ—çš„å¤§å° 
 	
-	/*µ±¶ÓÁĞ·Ç¿ÕÊ±´òÓ¡¶ÓÁĞ£¬¶ÓÁĞÈôÎª¿ÕÔòÊäÈë²»·û*/ 
-	if (!que.empty())
+	/*å½“é˜Ÿåˆ—éç©ºæ—¶æ‰“å°é˜Ÿåˆ—ï¼Œé˜Ÿåˆ—è‹¥ä¸ºç©ºåˆ™è¾“å…¥ä¸ç¬¦*/ 
+	if (!que.empty() && isPrint)
 	{
 		
 		for (int i=0; i< size; i++)
