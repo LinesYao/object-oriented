@@ -10,7 +10,7 @@ using namespace std;
 	{
 		string sign;  //存放符号 
 		string num;  //存放数字 
-        int lbrace = 0;  //记录(数目 
+       	int lbrace = 0;  //记录(数目 
         int rbrace = 0;  //记录)数目 
 		int count = 0;  //记忆数字位数 
 		bool isNeg = false;  //判断是否为负数 
