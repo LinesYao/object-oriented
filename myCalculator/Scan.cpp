@@ -5,38 +5,19 @@
 using namespace std;
 
 
-/*ÅĞ¶ÏÃüÁîĞĞÊäÈëÊÇ·ñÓĞ²ÎÊı£¬»ñµÃÃüÁîĞĞÊäÈëµÄ±í´ïÊ½*/
-string  Scan::judge(int argc, char* argv[]) 
-{
-	string input;
-	if(argc == 2)
-	{
-		input = argv[1];
-	
-	}
-	else if(argc > 2)
-	{
-		isPrint = true;
-		input = argv [argc-1];
-		
-	} 
-		
-	return input;
-	
-}
 	
 	queue<string> Scan::toStringQueue(string input)
 	{
-		string sign;  //´æ·Å·ûºÅ 
-		string num;  //´æ·ÅÊı×Ö 
-        int lbrace = 0;  //¼ÇÂ¼(ÊıÄ¿ 
-        int rbrace = 0;  //¼ÇÂ¼)ÊıÄ¿ 
-		int count = 0;  //¼ÇÒäÊı×ÖÎ»Êı 
-		bool isNeg = false;  //ÅĞ¶ÏÊÇ·ñÎª¸ºÊı 
+		string sign;  //å­˜æ”¾ç¬¦å· 
+		string num;  //å­˜æ”¾æ•°å­— 
+        int lbrace = 0;  //è®°å½•(æ•°ç›® 
+        int rbrace = 0;  //è®°å½•)æ•°ç›® 
+		int count = 0;  //è®°å¿†æ•°å­—ä½æ•° 
+		bool isNeg = false;  //åˆ¤æ–­æ˜¯å¦ä¸ºè´Ÿæ•° 
 		
 		for (int i = 0; i < input.size(); i++)
 		{
-			/*µ±Ç°Î»Îª·ûºÅ*/ 
+			/*å½“å‰ä½ä¸ºç¬¦å·*/ 
 			if (input[i] == '-' || input[i] == '(' || input[i] == ')' || input[i] == '+' || input[i] == '*' || input[i] == '/')
 			{
 				if (num!="") 
@@ -73,7 +54,7 @@ string  Scan::judge(int argc, char* argv[])
 					} 
 				}
 				
-				/*¸ºÊıÇé¿ö '-' ÓëÊı×Ö´æÔÚÒ»Æğ*/ 
+				/*è´Ÿæ•°æƒ…å†µ '-' ä¸æ•°å­—å­˜åœ¨ä¸€èµ·*/ 
 				if(input[i] == '-' && ((i == 0 || !isdigit(input[i-1]) && input[i-1]!=')' ) && ( i!= input.size()-1 && isdigit(input[i+1]) ) ))
 				{
 	
@@ -88,13 +69,13 @@ string  Scan::judge(int argc, char* argv[])
 			
 			}
 			
-			/*µ±Ç°Î»ÎªÊı×Ö*/ 
+			/*å½“å‰ä½ä¸ºæ•°å­—*/ 
 			else if (input[i] >= '0' && input[i] <= '9' || input[i] == '.')  
 			{
 				count++;
 				if (count > 10)
 				{
-					cout << "ERROR : ÊäÈëµÄÊı×Ö³¬¹ıÊ®Î»£¨°üÀ¨Ğ¡ÊıÎ»£©" << endl;
+					cout << "ERROR : è¾“å…¥çš„æ•°å­—è¶…è¿‡åä½ï¼ˆåŒ…æ‹¬å°æ•°ä½ï¼‰" << endl;
 					isTrue = false;
 					break; 
 				}
@@ -104,7 +85,7 @@ string  Scan::judge(int argc, char* argv[])
 		
 	 	} 
 	 	
-	 	/*×îºóÒ»Î»ÎªÊı×Ö*/
+	 	/*æœ€åä¸€ä½ä¸ºæ•°å­—*/
         if(num!="" && isTrue)
 		{
 			if(isNeg)
@@ -114,7 +95,7 @@ string  Scan::judge(int argc, char* argv[])
 			inputQue.push(num);
 		}
 		
-		/*ÅĞ¶ÏÀ¨ºÅÊÇ·ñÆ¥Åä*/ 
+		/*åˆ¤æ–­æ‹¬å·æ˜¯å¦åŒ¹é…*/ 
 		if(lbrace!=rbrace)
 		{
 			cout<<"ERROR : () don't match" <<endl;
@@ -123,7 +104,7 @@ string  Scan::judge(int argc, char* argv[])
 		
 	
 		
-		/*ÊäÈë²»·ûÒªÇó»ò´íÎó£¨Ä¿Ç°ÎªÊäÈëµÄÊı×Ö³¬¹ıÊ®Î»,×óÓÒÀ¨ºÅ²»Æ¥Åä£¬³ıÊıÎª0£©£¬Çå¿Õ¶ÓÁĞ*/ 
+		/*è¾“å…¥ä¸ç¬¦è¦æ±‚æˆ–é”™è¯¯ï¼ˆç›®å‰ä¸ºè¾“å…¥çš„æ•°å­—è¶…è¿‡åä½,å·¦å³æ‹¬å·ä¸åŒ¹é…ï¼Œé™¤æ•°ä¸º0ï¼‰ï¼Œæ¸…ç©ºé˜Ÿåˆ—*/ 
 		if (isTrue == false)
 		{
 	
@@ -139,8 +120,5 @@ string  Scan::judge(int argc, char* argv[])
 		return inputQue;
 	
     }
-    
-
-
 
 	
