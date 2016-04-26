@@ -5,19 +5,27 @@
 using namespace std;
 
 
-
-
 int main(int argc, char* argv[]) 
 {
-	//string input;  //接收键盘输入的表达式 
+
+	string input;	//接收键盘输入的表达式 	
+	Scan sc;
 	//cin>>input; 
 	
-	Scan sc;
-	queue<string> q = sc.toStringQueue(sc.judge(argc,argv)); 
-    //queue<string> q = sc.toStringQueue(input);  //存放获取的队列 
+	if(argc == 2)
+	{
+		input = argv[1];
+	}
+	else if(argc > 2)
+	{
+		sc.isPrint = true;
+		input = argv [argc-1];
+	} 
+
+        queue<string> q = sc.toStringQueue(input);  //存放获取的队列 
 
 	Print pr;
-	pr.printQue(q ,sc.isPrint);
+	pr.printQue(q);
 	
 
 	Calculation cal;
