@@ -85,6 +85,7 @@ using namespace std;
 		
 	 	} 
 	 	
+	 	
 	 	/*最后一位为数字*/
         if(num!="" && isTrue)
 		{
