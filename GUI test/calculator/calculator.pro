@@ -13,8 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    Scanner.cpp \
+    Printer.cpp \
+    Calculationer.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    Printer.h \
+    Scanner.h \
+    Calculationer.h
 
 FORMS    += mainwindow.ui

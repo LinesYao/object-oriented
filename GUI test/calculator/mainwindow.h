@@ -5,6 +5,12 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QTextEdit>
 #include <QMainWindow>
+#include <QKeyEvent>
+
+#include "Calculationer.h"
+#include "Printer.h"
+#include "Scanner.h"
+
 
 namespace Ui {
 class MainWindow;
@@ -23,6 +29,7 @@ signals:
 private slots:
     void buttonPushed();
     void operationPushed();
+    void keyPressEvent(QKeyEvent *e);
 
 private:
     //QTextFormat *text;
