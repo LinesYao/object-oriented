@@ -6,6 +6,9 @@
 QString value = "";
 QString inputExpression = "";
 QString operations[10]={"(",")","C","←","÷","×","-","+",".","="};
+QString inpath = "";
+QString outpath = "";
+
 int numButtonPos[10][2]={10,250,10,200,60,200,110,200,10,150,60,150,110,150,10,100,60,100,110,100};
 int operationPos[10][2]={10,50,60,50,110,50,160,50,160,100,160,150,160,200,160,250,60,250,110,250};
 
@@ -13,13 +16,26 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 
 {
+
     label = new QLabel("",this);
     label ->setGeometry(QRect(QPoint(0,0),QSize(200,50)));
+
+    inlabel = new QLabel("File In",this);
+    inlabel ->setGeometry(QRect(QPoint(20,310),QSize(50,20)));
+
+    outlabel= new QLabel("File Out",this);
+    outlabel ->setGeometry(QRect(QPoint(20,350),QSize(50,20)));
+
+    inedit = new QLineEdit ("",this);
+    inedit ->setGeometry(QRect(QPoint(80,310),QSize(120,20)));
+
+    outedit = new QLineEdit ("",this);
+    outedit ->setGeometry(QRect(QPoint(80,350),QSize(120,20)));
+
     for(int i = 0; i < 10;i++) {
         operationButtons[i] = new QPushButton(operations[i],this);
         operationButtons[i] ->setGeometry(QRect(QPoint(operationPos[i][0],operationPos[i][1]),QSize(45,45)));
         connect(operationButtons[i],SIGNAL(released()),this,SLOT(operationPushed()));
-
 
     }
 
@@ -28,10 +44,11 @@ MainWindow::MainWindow(QWidget *parent) :
             buttons[i] = new QPushButton(digit,this);
             buttons[i] ->setGeometry(QRect(QPoint(numButtonPos[i][0],numButtonPos[i][1]),QSize(45,45)));
             connect(buttons[i],SIGNAL(released()),this,SLOT(buttonPushed()));
-
     }
 
 }
+
+
 void MainWindow::operationPushed() {
     QPushButton *button = (QPushButton *)sender();
     if(button -> text()=="C") {
@@ -61,6 +78,7 @@ void MainWindow::operationPushed() {
         }
 
     }
+    label ->setText(value);
     if(button -> text()=="=") {
         string input = inputExpression.toStdString();
         Scanner scan;
@@ -69,8 +87,9 @@ void MainWindow::operationPushed() {
         queue<string> q = scan.toStringQueue(input);
         scan.clearQue();
         value = QString::fromStdString(pr.write(scan.getFlag(), cal.getResult(q)));
+        label ->setText(value);
+        inputExpression = value = "";
     }
-    label ->setText(value);
 
 }
 void MainWindow::buttonPushed() {
@@ -84,6 +103,10 @@ void MainWindow::buttonPushed() {
 
 void MainWindow::keyPressEvent(QKeyEvent *e)
 {
+    inpath += e->text();
+    inedit -> setText(inpath);
+    outpath += e->text();
+    outedit -> setText(outpath);
 
     if(e->key()== Qt::Key_0||e->key()== Qt::Key_1||e->key()== Qt::Key_2||e->key()== Qt::Key_3||e->key()== Qt::Key_4||e->key()== Qt::Key_5||
             e->key()== Qt::Key_6||e->key()== Qt::Key_7||e->key()== Qt::Key_8||e->key()== Qt::Key_9||e->key()==Qt::Key_ParenLeft||e->key()==Qt::Key_ParenRight
@@ -119,7 +142,9 @@ void MainWindow::keyPressEvent(QKeyEvent *e)
         inputExpression = "";
 
     }
-    else if(e->key() == Qt::Key_Equal) {
+    label ->setText(value);
+
+    if(e->key() == Qt::Key_Equal) {
         string input = inputExpression.toStdString();
         Scanner scan;
         Calculationer cal;
@@ -127,9 +152,9 @@ void MainWindow::keyPressEvent(QKeyEvent *e)
         queue<string> q = scan.toStringQueue(input);
         scan.clearQue();
         value = QString::fromStdString(pr.write(scan.getFlag(), cal.getResult(q)));
+        label ->setText(value);
+        inputExpression = value = "";
     }
-
-    label ->setText(value);
 
 }
 MainWindow::~MainWindow()

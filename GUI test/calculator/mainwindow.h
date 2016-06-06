@@ -4,9 +4,13 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QTextEdit>
+#include <QtWidgets/QLineEdit>
 #include <QMainWindow>
 #include <QKeyEvent>
-
+#include <QMouseEvent>
+#include <QAction>
+#include <QMenuBar>
+#include <QMessageBox>
 #include "Calculationer.h"
 #include "Printer.h"
 #include "Scanner.h"
@@ -32,8 +36,12 @@ private slots:
     void keyPressEvent(QKeyEvent *e);
 
 private:
-    //QTextFormat *text;
+    QAction *fileAction;
+    QLineEdit *inedit;
+    QLineEdit *outedit;
     QLabel *label;
+    QLabel *inlabel;
+    QLabel *outlabel;
     QPushButton *operationButtons[10];
     QPushButton *buttons[10];
 };
