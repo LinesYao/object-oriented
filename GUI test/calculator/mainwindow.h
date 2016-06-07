@@ -14,6 +14,7 @@
 #include "Calculationer.h"
 #include "Printer.h"
 #include "Scanner.h"
+#include "dialog.h"
 
 
 namespace Ui {
@@ -31,19 +32,18 @@ signals:
     void numberEmitted(int number);
 
 private slots:
+    void fileDialogClicked();
     void buttonPushed();
     void operationPushed();
     void keyPressEvent(QKeyEvent *e);
 
 private:
+    Dialog fileDialog;
     QAction *fileAction;
-    QLineEdit *inedit;
-    QLineEdit *outedit;
     QLabel *label;
-    QLabel *inlabel;
-    QLabel *outlabel;
     QPushButton *operationButtons[10];
     QPushButton *buttons[10];
+    QPushButton *fileButton;
 };
 
 #endif // MAINWINDOW_H

@@ -20,17 +20,13 @@ MainWindow::MainWindow(QWidget *parent) :
     label = new QLabel("",this);
     label ->setGeometry(QRect(QPoint(0,0),QSize(200,50)));
 
-    inlabel = new QLabel("File In",this);
-    inlabel ->setGeometry(QRect(QPoint(20,310),QSize(50,20)));
 
-    outlabel= new QLabel("File Out",this);
-    outlabel ->setGeometry(QRect(QPoint(20,350),QSize(50,20)));
 
-    inedit = new QLineEdit ("",this);
-    inedit ->setGeometry(QRect(QPoint(80,310),QSize(120,20)));
 
-    outedit = new QLineEdit ("",this);
-    outedit ->setGeometry(QRect(QPoint(80,350),QSize(120,20)));
+
+    fileButton = new QPushButton("FILE_IN_OUT",this);
+    fileButton -> setGeometry (QRect(QPoint(50,330),QSize(120,20)));
+    connect(fileButton,SIGNAL(clicked(bool)),this,SLOT(fileDialogClicked()));
 
     for(int i = 0; i < 10;i++) {
         operationButtons[i] = new QPushButton(operations[i],this);
@@ -48,7 +44,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
+void MainWindow::fileDialogClicked() {
+    fileDialog.show();
 
+}
 void MainWindow::operationPushed() {
     QPushButton *button = (QPushButton *)sender();
     if(button -> text()=="C") {
@@ -103,10 +102,7 @@ void MainWindow::buttonPushed() {
 
 void MainWindow::keyPressEvent(QKeyEvent *e)
 {
-    inpath += e->text();
-    inedit -> setText(inpath);
-    outpath += e->text();
-    outedit -> setText(outpath);
+
 
     if(e->key()== Qt::Key_0||e->key()== Qt::Key_1||e->key()== Qt::Key_2||e->key()== Qt::Key_3||e->key()== Qt::Key_4||e->key()== Qt::Key_5||
             e->key()== Qt::Key_6||e->key()== Qt::Key_7||e->key()== Qt::Key_8||e->key()== Qt::Key_9||e->key()==Qt::Key_ParenLeft||e->key()==Qt::Key_ParenRight
