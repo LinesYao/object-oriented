@@ -3,6 +3,7 @@
 #include <QtCore/QCoreApplication>
 #include <string>
 
+
 QString value = "";
 QString inputExpression = "";
 QString operations[10]={"(",")","C","←","÷","×","-","+",".","="};
@@ -17,15 +18,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
 {
 
+
     label = new QLabel("",this);
     label ->setGeometry(QRect(QPoint(0,0),QSize(200,50)));
 
 
-
-
-
     fileButton = new QPushButton("FILE_IN_OUT",this);
-    fileButton -> setGeometry (QRect(QPoint(50,330),QSize(120,20)));
+    fileButton -> setGeometry (QRect(QPoint(50,310),QSize(120,25)));
     connect(fileButton,SIGNAL(clicked(bool)),this,SLOT(fileDialogClicked()));
 
     for(int i = 0; i < 10;i++) {
@@ -81,11 +80,11 @@ void MainWindow::operationPushed() {
     if(button -> text()=="=") {
         string input = inputExpression.toStdString();
         Scanner scan;
-        Calculationer cal;
+        Calculation cal;
         Printer pr;
         queue<string> q = scan.toStringQueue(input);
         scan.clearQue();
-        value = QString::fromStdString(pr.write(scan.getFlag(), cal.getResult(q)));
+        value = QString::fromStdString(pr.getInfomation(scan.getFlag(), cal.getResult(q)));
         label ->setText(value);
         inputExpression = value = "";
     }
@@ -143,11 +142,11 @@ void MainWindow::keyPressEvent(QKeyEvent *e)
     if(e->key() == Qt::Key_Equal) {
         string input = inputExpression.toStdString();
         Scanner scan;
-        Calculationer cal;
+        Calculation cal;
         Printer pr;
         queue<string> q = scan.toStringQueue(input);
         scan.clearQue();
-        value = QString::fromStdString(pr.write(scan.getFlag(), cal.getResult(q)));
+        value = QString::fromStdString(pr.getInfomation(scan.getFlag(), cal.getResult(q)));
         label ->setText(value);
         inputExpression = value = "";
     }

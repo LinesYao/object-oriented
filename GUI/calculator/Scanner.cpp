@@ -2,7 +2,7 @@
 #include <cstdio>
 #include <ctype.h>
 #include "Printer.h"
-#include "Calculationer.h"
+#include "Calculation.h"
 using namespace std;
 
 queue<string> Scanner::toStringQueue(string input)
@@ -18,14 +18,6 @@ queue<string> Scanner::toStringQueue(string input)
     for (int i = 0; i < input.size(); i++)
     {
         /*当前位为符号*/
-        if(input[i] == '×') {
-            input[i] = '*';
-
-        }
-        if(input[i] == '÷') {
-            input[i] = '/';
-
-        }
         if (input[i] == '-' || input[i] == '(' || input[i] == ')' || input[i] == '+' || input[i] == '*' || input[i] == '/')
         {
             if (num != "")
@@ -137,30 +129,32 @@ void  Scanner::clearQue()
 
 int Scanner::getFlag()
 {
-    Calculationer cal;
+    Calculation cal;
     return flag;
 }
 
-/*
-void Scan::read(string inpath, string outpath)
+
+void Scanner::read(string inpath, string outpath)
 {
     Calculation cal;
-    Print pr;
+    Printer pr;
     queue<string> q;
     string s, res;
     ifstream in(inpath, ios::in);   //为读入而打开文件
-    //ofstream out(outpath, ios::out); //为写而打开文件
+    ofstream out(outpath, ios::out); //为写而打开文件
+
     while (getline(in, s))
     {
-        q = Scan::toStringQueue(s);
-        Scan::clearQue();
-        res = cal.getResult(q);
-        pr.write(outpath, flag, res);
-        //cout << "rr" << endl;
+        if (s == "") break;
+        q = Scanner::toStringQueue(s);
+        Scanner::clearQue();
+        res = pr.getInfomation(flag, cal.getResult(q));
+        pr.write(res,out);
 
     }
-    //in.close();
-    //out.close();
+
+    in.close();
+    out.close();
 
 }
-*/
+

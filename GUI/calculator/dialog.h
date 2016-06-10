@@ -6,6 +6,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QPushButton>
 #include <QFileDialog>
+#include <QMessageBox>
 
 
 namespace Ui {
@@ -22,7 +23,7 @@ public:
 public slots:
     void readSelectClicked();
     void writeSelectCliced();
-    void sureClicked();
+    void detClicked();
 
 private:
     QLabel *inlabel;
@@ -31,8 +32,7 @@ private:
     QLineEdit *outedit;
     QPushButton *inButton;
     QPushButton *outButton;
-    QPushButton *sureButton;
-
+    QPushButton *detButton;
 
 
 

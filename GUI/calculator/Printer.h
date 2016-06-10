@@ -8,24 +8,24 @@ Function List:
 
 *****************************************/
 
-#include<iostream>
-#include<queue>
-#include<fstream>
+#include <iostream>
+#include <queue>
+#include <fstream>
 using namespace std;
 
 class Printer
 {
-    public:
 
-        int flag;
+public:
 
-        void printQue(queue<string> que);
 
-        void print(int flag, string res);
+    void printQue(queue<string> que);
 
-        void printError(int flag);
+    void print(string res);
 
-        string write(int flag , string res);
+    string getInfomation(int flag, string res);
+
+    void write(string res,ofstream &out);
 
 
 };

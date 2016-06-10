@@ -1,15 +1,13 @@
-#include "Calculationer.h"
-#include <sstream>
-#include <iostream>
-#include <ctype.h>
+#include"Calculation.h"
+#include<sstream>
 #define SIGNNUM 6
+#include<iostream>
+#include<ctype.h>
 using namespace std;
-
-
 string priority[SIGNNUM][2] = { { "(","5" },{ ")","5" },{ "+","1" },{ "-","1" },{ "*","2" },{ "/","2" } }; // 储存运算符优先级数组
 
-                                                                                                          /*返回运算符在优先级数组中的位置，方便优先级比较*/
-int Calculationer::comPri(string input)
+                                                                                                           /*返回运算符在优先级数组中的位置，方便优先级比较*/
+int Calculation::comPri(string input)
 {
     for (int j = 0; j < SIGNNUM; j++)
     {
@@ -18,12 +16,12 @@ int Calculationer::comPri(string input)
             return j;
         }
     }
-    return 0;
 }
 
 /*将中缀表达式转换为后缀表达式*/
-void Calculationer::toPrefix(queue<string> q)
+void Calculation::toPrefix(queue<string> q)
 {
+
 
     string last;
     int size = q.size();
@@ -86,7 +84,7 @@ void Calculationer::toPrefix(queue<string> q)
 
 
 /*后缀表达式求值*/
-void Calculationer::Calculate()
+void Calculation::Calculate()
 {
     stringstream stream;
     double num1;
@@ -141,13 +139,14 @@ void Calculationer::Calculate()
     }
 
     outputres = numS.top();
+
 }
 
 /*计算表达式*/
-string Calculationer::getResult(queue<string> q)
+string Calculation::getResult(queue<string> q)
 {
-    Calculationer::toPrefix(q);
-    Calculationer::Calculate();
+    Calculation::toPrefix(q);
+    Calculation::Calculate();
     return outputres;
 
 }

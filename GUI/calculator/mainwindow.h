@@ -11,7 +11,7 @@
 #include <QAction>
 #include <QMenuBar>
 #include <QMessageBox>
-#include "Calculationer.h"
+#include "Calculation.h"
 #include "Printer.h"
 #include "Scanner.h"
 #include "dialog.h"

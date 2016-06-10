@@ -16,14 +16,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     Scanner.cpp \
     Printer.cpp \
-    Calculationer.cpp \
-    dialog.cpp
+    dialog.cpp \
+    Calculation.cpp
 
 HEADERS  += mainwindow.h \
     Printer.h \
     Scanner.h \
-    Calculationer.h \
-    dialog.h
+    dialog.h \
+    Calculation.h
 
 FORMS    += mainwindow.ui
 
