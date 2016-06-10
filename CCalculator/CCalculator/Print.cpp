@@ -1,34 +1,31 @@
-#include"Print.h"
-#include<string>
+#include "Print.h"
+#include <string>
 using namespace std;
 
-void Print::print(int flag, string res)
+string Print::getInfomation(int flag, string res)
 {
-	if (flag == -1)
-	{
-		cout << res << endl;
-	}
-	else
-	{
-		Print::printError(flag);
-	}
-}
-
-void Print::printError(int flag)
-{
-
 	switch (flag)
 	{
+	case -1:
+		return  res;
+		break;
 	case 1:
-		cout << "ERROR : divided by zero " << endl;
+		return "ERROR : divided by zero ";
 		break;
 	case 2:
-		cout << "ERROR : 输入的数字超过十位（包括小数位）" << endl;
+		return "ERROR : 输入的数字超过十位（包括小数位）";
 		break;
 	case 3:
-		cout << "ERROR : () don't match" << endl;
+		return "ERROR : () don't match";
 		break;
 	}
+
+}
+
+
+void Print::print(string res)
+{
+	cout << res << endl;
 }
 
 
@@ -45,27 +42,7 @@ void Print::printQue(queue<string> que)
 
 
 
-void Print::write(string outpath, int flag, string res,ofstream &out)
+void Print::write(string res, ofstream &out)
 {
-	
-	switch (flag)
-	{
-	case -1:
-	
-		out << res << endl;
-		break;
-	case 1:
-		out << "ERROR : divided by zero " << endl;
-		
-		break;
-	case 2:
-		out << "ERROR : 输入的数字超过十位（包括小数位）" << endl;
-	
-		break;
-	case 3:
-		out << "ERROR : () don't match" << endl;
-		
-		break;
-	}
-	
+	out << res << endl;
 }

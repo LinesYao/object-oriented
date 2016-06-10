@@ -148,8 +148,8 @@ void Scan::read(string inpath, string outpath)
 		if (s == "") break;
 		q = Scan::toStringQueue(s);
 		Scan::clearQue();
-		res = cal.getResult(q);
-		pr.write(outpath, flag, res,out);
+		res = pr.getInfomation(flag, cal.getResult(q));
+		pr.write(res,out);
 	
 	}
 

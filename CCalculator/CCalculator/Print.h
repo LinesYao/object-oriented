@@ -17,10 +17,10 @@ public:
 
 	void printQue(queue<string> que);
 
-	void print(int flag, string res);
+	void print(string res);
 
-	void printError(int flag);
+	string getInfomation(int flag, string res);
 
-	void write(string outpath, int flag, string res,ofstream &out);
+	void write(string res,ofstream &out);
 
 };
