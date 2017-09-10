@@ -1,4 +1,5 @@
 #include"Scan.h"
+#include<string>
 #include<cstdio>
 #include<cstring>
 int Scan::read_check(int argc, char* argv[]) {
@@ -30,7 +31,15 @@ int Scan::read_check(int argc, char* argv[]) {
 	case 3:
 		printf("输入值不合法，提醒输入值范围为%d-%d的整数!\n", lower_limit, upper_limit);
 	}
-	if(!type) freopen("sudoku.out", "w", stdout);
+
+	if (!type) {
+		string tmp = argv[0];
+		int pos = tmp.rfind('\\');
+		file_path = "";
+		for (int i = 0;i <= pos;++i) file_path += tmp[i];
+		file_path += file_name;
+		freopen(file_path.c_str(), "w", stdout);
+	}
 	return type ? -1 : num;
 }
 
